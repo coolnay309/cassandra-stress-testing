@@ -1,3 +1,4 @@
+specname: entityevents
 keyspace: dssevents
 keyspace_definition: |
  CREATE KEYSPACE dssevents WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 3};
