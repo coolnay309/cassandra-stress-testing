@@ -46,5 +46,5 @@ queries:
       cql: select *  from events where event = ?
       fields: samerow
    latest_all_events:
-      cql: select *  from events where event = ? LIMIT=100
+      cql: select *  from events where event = ? LIMIT 5000
       fields: samerow

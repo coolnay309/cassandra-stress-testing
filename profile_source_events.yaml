@@ -47,5 +47,5 @@ queries:
       cql: select *  from entity_events where source_entity_type = ?
       fields: samerow
    latest_source_entity_events:
-      cql: select *  from entity_events where source_entity_type = ? LIMIT=50
+      cql: select *  from entity_events where source_entity_type = ? LIMIT 5000
       fields: samerow
