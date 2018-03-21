@@ -1,4 +1,4 @@
-keyspace: stressdssdw
+keyspace: entityevents
 keyspace_definition: |
  CREATE KEYSPACE stressdssdw WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 3};
 table: entity_events

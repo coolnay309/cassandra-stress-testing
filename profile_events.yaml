@@ -1,4 +1,4 @@
-keyspace: stressdssdw
+keyspace: all_events
 keyspace_definition: |
  CREATE KEYSPACE stressdssdw WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 3};
 table: events
@@ -42,9 +42,9 @@ insert:
     select: fixed(1)/500
     batchtype: UNLOGGED
 queries:
-   all_events:
+   get_all_events:
       cql: select *  from events where event = ?
       fields: samerow
-   latest_all_events:
+   get_latest_all_events:
       cql: select *  from events where event = ? LIMIT 5000
       fields: samerow
