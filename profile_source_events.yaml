@@ -1,6 +1,6 @@
 keyspace: stressdssdw
 keyspace_definition: |
- CREATE KEYSPACE stressdssdw WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 3} AND compression = {'class': 'LZ4Compressor'};
+ CREATE KEYSPACE stressdssdw WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 3};
 table: entity_events
 table_definition: |
   CREATE TABLE entity_events (
