@@ -1,6 +1,6 @@
-keyspace: entityevents
+keyspace: dssevents
 keyspace_definition: |
- CREATE KEYSPACE stressdssdw WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 3};
+ CREATE KEYSPACE dssevents WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 3};
 table: entity_events
 table_definition: |
   CREATE TABLE entity_events (
