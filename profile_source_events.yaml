@@ -17,7 +17,6 @@ table_definition: |
     PRIMARY KEY(source_entity_type, saved_at)
   )
   WITH CLUSTERING ORDER BY (saved_at DESC);
-  CREATE INDEX ON dssevents.entity_events (event);
 columnspec:
   - name: event
     size: uniform(5..10)
