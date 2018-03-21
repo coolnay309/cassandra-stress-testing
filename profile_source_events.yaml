@@ -1,9 +1,9 @@
-specname:entityevents
-keyspace:stressdssdw
-keyspace_definition:|
- CREATE KEYSPACE stressdssdw WITH replication = {'class':'SimpleStrategy','replication_factor':3} AND compression = {'class':'LZ4Compressor'};
-table:entity_events
-table_definition:|
+specname: entityevents
+keyspace: stressdssdw
+keyspace_definition: |
+ CREATE KEYSPACE stressdssdw WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 3} AND compression = {'class': 'LZ4Compressor'};
+table: entity_events
+table_definition: |
   CREATE TABLE entity_events (
     event text,
     saved_at timestamp,
@@ -20,33 +20,33 @@ table_definition:|
   WITH CLUSTERING ORDER BY (saved_at DESC);
   CREATE INDEX ON stressdssdw.entity_events (event);
 columnspec:
-  - name:event
-    size:uniform(5..10)
-    population:uniform(1..10)
-  - name:saved_at
-    cluster:fixed(15)
-  - name:source_entity_type
-    size:uniform(5..10)
-    population:uniform(1..10)
-  - name:target_entity_type
-    size:uniform(5..10)
-    population:uniform(1..10)
-  - name:properties
-    size:uniform(150..200)
-  - name:context
-    size:uniform(150..200)
-  - name:user
-    size:uniform(100..150)
-    population:gaussian(100..10000, 5500, 500)
+  - name: event
+    size: uniform(5..10)
+    population: uniform(1..10)
+  - name: saved_at
+    cluster: fixed(15)
+  - name: source_entity_type
+    size: uniform(5..10)
+    population: uniform(1..10)
+  - name: target_entity_type
+    size: uniform(5..10)
+    population: uniform(1..10)
+  - name: properties
+    size: uniform(150..200)
+  - name: context
+    size: uniform(150..200)
+  - name: user
+    size: uniform(100..150)
+    population: gaussian(100..10000, 5500, 500)
   
 insert:
-    partitions:fixed(3)
-    select:fixed(1)/500
-    batchtype:UNLOGGED
+    partitions: fixed(3)
+    select: fixed(1)/500
+    batchtype: UNLOGGED
 queries:
    source_entity_events:
-      cql:select *  from entity_events where source_entity_type = ?
-      fields:samerow
+      cql: select *  from entity_events where source_entity_type = ?
+      fields: samerow
    latest_source_entity_events:
-      cql:select *  from entity_events where source_entity_type = ? LIMIT=50
-      fields:samerow
+      cql: select *  from entity_events where source_entity_type = ? LIMIT=50
+      fields: samerow
